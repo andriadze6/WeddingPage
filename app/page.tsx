@@ -28,6 +28,7 @@ type SectionProps = {
 
 const weddingDate = new Date("2026-06-04T15:30:00");
 const initialCountdown: CountdownValue = { days: "--", hours: "--", minutes: "--", seconds: "--" };
+const musicStartTime = 17;
 
 const programme = [
   ["15:30", "event1.title", "event1.place"],
@@ -106,6 +107,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     }
 
     try {
+      audio.currentTime = musicStartTime;
       await audio.play();
       setIsMusicPlaying(true);
       return true;
