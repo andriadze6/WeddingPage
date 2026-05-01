@@ -93,6 +93,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const hasTriedAutoPlayRef = useRef(false);
   const t = useTranslations();
 
   useEffect(() => {
@@ -113,6 +114,19 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [locale, hideEnvelope]);
+
+  useEffect(() => {
+    if (hasTriedAutoPlayRef.current) return;
+
+    hasTriedAutoPlayRef.current = true;
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.play()
+      .then(() => setIsMusicPlaying(true))
+      .catch(() => setIsMusicPlaying(false));
+  }, []);
+
   const font =  useMemo(() => {
     if(locale === "en"){
       return "serif"
@@ -310,8 +324,8 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
         <span />
         <span />
       </button>
-      <audio ref={audioRef} loop preload="none">
-        <source src="https://cdn.pixabay.com/audio/2022/10/14/audio_3946a7c3a3.mp3" type="audio/mpeg" />
+      <audio ref={audioRef} loop preload="auto" autoPlay>
+        <source src="/assets/Dean Martin - That's Amore - NM Catalogue (128k).mp3" type="audio/mpeg" />
       </audio>
 
 
