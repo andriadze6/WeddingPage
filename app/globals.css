@@ -33,14 +33,14 @@ button { font: inherit; }
   inset: 0;
   z-index: 999;
   background:
-    url("/assets/vinci_watercolor_1x1.svg") center / cover no-repeat;
+    url("/assets/vinci_watercolor_1x1.webp") center / cover no-repeat;
   display: grid;
   place-items: center;
   transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
 }
 .page_1_wrapper{
     background:
-    url("/assets/Page1.png") center / cover no-repeat,
+    url("/assets/Page1.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   display: grid;
   place-items: center;
@@ -48,14 +48,14 @@ button { font: inherit; }
 }
 .page_2_wrapper{
   background:
-    url("/assets/Agriturismo Il piastrino.png") center / cover no-repeat,
+    url("/assets/agriturismo_il_piastrino.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   display: grid;
   place-items: center;
   transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
 }
 .page_3_wrapper{
-    background:url("/assets/musignano.png") center / cover no-repeat,
+    background:url("/assets/musignano.webp") center / cover no-repeat,
         radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   backdrop-filter: blur(4px);
   display: grid;
@@ -533,22 +533,22 @@ time {
   }
   .envelope-screen{
       background:
-    url("/assets/vinci_watercolor_3x4.svg") center / cover no-repeat,
+    url("/assets/vinci_watercolor_3x4.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }  .lang-btn{
     padding: 9px;
   }
   .page_1_wrapper{
       background:
-    url("/assets/page13X4.png") center / cover no-repeat,
+    url("/assets/page13X4.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }
   .page_2_wrapper{
-      background:url("/assets/agriturismo_il_piastrino_3x4.png") center / cover no-repeat,
+      background:url("/assets/agriturismo_il_piastrino_3x4.webp") center / cover no-repeat,
       radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }
   .page_3_wrapper{
-    background:url("/assets/musignano3x4.png") center / cover no-repeat,
+    background:url("/assets/musignano3x4.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }
   /* .lang-switcher{
