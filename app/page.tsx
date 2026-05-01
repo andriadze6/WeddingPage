@@ -164,7 +164,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
         </nav>
       </div>
       {!hideEnvelope ? (
-        <div style={{fontFamily: `var(--${font})`}} className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
+        <div  className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
           <div
             className="envelope-form-wrap envelope"
             role="button"
@@ -211,7 +211,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           }} className="page_1_wrapper">
 
             <Section whiteCard = {false} id="s-hero" 
-            image="" color="#c8b898">
+            image="" color="#A8B5A0">
               <Image
                 className="bird-sketch"
                 src="/assets/flying_machine_watercolor.webp"
@@ -239,6 +239,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
 
 
           <section className="section page_2_wrapper">
+            <div className="over_laye"></div>
             <article className={`white-card reveal}`}>
                 <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
                 <h2 className="reveal reveal-d1">{t("story.title")}</h2>
@@ -254,10 +255,10 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
                 </span>
                 <p className="story-text reveal reveal-d2">{t("story.text")}</p>
                 <p className="signature reveal reveal-d3">{t("story.signature")}</p>
-                </article>
+            </article>
           </section>
 
-          {/* <Section whiteCard = {false} id="s-story" image="/assets/vinci.png" color="#c0b08a">
+          {/* <Section whiteCard = {false} id="s-story" image="/assets/vinci.png" color="#A8B5A0">
 
           </Section> */}
           <section className="section page_3_wrapper">
@@ -279,7 +280,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
             </article>
           </section>
 
-          <Section whiteCard = {true} id="s-locations" image="/assets/agriturismo_il_piastrino.webp" color="#c8b490" wide>
+          <Section whiteCard = {true} id="s-locations" image="/assets/agriturismo_il_piastrino.webp" color="#C9D3C2" wide>
             <p className="eyebrow">{t("venue.eyebrow")}</p>
             <h2>{t("venue.title")}</h2>
             <p className="intro">{t("venue.intro")}</p>
