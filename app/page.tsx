@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
-import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useEffect, useRef, useState } from "react";
+import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
 import enMessages from "@/messages/en.json";
 import itMessages from "@/messages/it.json";
 import kaMessages from "@/messages/ka.json";
+import Link from "next/link";
 
 const messages = {
   ka: kaMessages,
@@ -38,9 +39,9 @@ const programme = [
 ] as const;
 
 const locations = [
-  ["loc1.label", "loc1.name", "loc1.detail"],
-  ["loc2.label", "loc2.name", "loc2.detail"],
-  ["loc3.label", "loc3.name", "loc3.detail"],
+  ["loc1.label", "loc1.name", "loc1.detail", ""],
+  ["loc2.label", "loc2.name", "loc2.detail", "https://www.google.com/maps/place/Azienda+Agrituristica+Musignano/data=!4m2!3m1!1s0x0:0x70de6bce7c35a158?sa=X&ved=1t:2428&ictx=111"],
+  ["loc3.label", "loc3.name", "loc3.detail", "https://www.google.com/maps/place/Agriturismo+Il+Piastrino/data=!4m2!3m1!1s0x132a66c61f8d0353:0x891b99f8190d3e1d?sa=X&ved=1t:242&ictx=111"],
 ] as const;
 
 function getCountdown(): CountdownValue {
@@ -112,14 +113,15 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [locale, hideEnvelope]);
-
-
-  useEffect(()=>{
-    const screenSize = window.innerWidth;
-    if(screenSize <= 750){
-      setIsMobile(true);
+  const font =  useMemo(() => {
+    if(locale === "en"){
+      return "serif"
+    }else if (locale === "it"){
+      return "serif"
+    }else if (locale === "ka"){
+      return "geo"
     }
-  },[])
+  }, [locale]);
 
   const openEnvelope = () => {
     setIsEnvelopeOpen(true);
@@ -153,14 +155,18 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   return (
     <>
       {!hideEnvelope && (
-        <div className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
+        <div style={{fontFamily: `var(--${font})`}} className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
           <div
             className="envelope-form-wrap envelope"
             role="button"
             tabIndex={0}
             aria-label="Open invitation"
             onClick={()=>{
-              setShowEnvelopeMassage(!showEnvelopeMassage);
+              if(!showEnvelopeMassage){
+                setShowEnvelopeMassage(!showEnvelopeMassage);
+              }else{
+                openEnvelope();
+              }
             }}
             onKeyDown={handleEnvelopeKeyDown}
           >
@@ -170,15 +176,16 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
                 <div className="env-bottom" />
               </div>
               <Image className="env-stamp" src="/assets/envelope_candle_stamp_AG.svg" alt="Anano and Giorgi wax stamp" width={78} height={78} priority />
-              <div onClick={openEnvelope} className="env-card-peek-wrapper">
+              <div className="env-card-peek-wrapper">
                 <div className="env-card-peek">
+                  <span>{t("envelope.title")}</span>
                   <span className="script">{t("envelope.names")}</span>
                   <small>04 · 06 · 2026</small>
+                  <small className="env-hint">{t("envelope.click")} ✦</small>
                 </div>
               </div>
             </div>
           </div>
-          <p className="env-hint">{t("envelope.click")} ✦</p>
         </div>
       )}
       <button className={`music-toggle${isMusicPlaying ? " playing" : ""}`} onClick={toggleMusic} aria-label="play music">
@@ -285,17 +292,17 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           <h2>{t("venue.title")}</h2>
           <p className="intro">{t("venue.intro")}</p>
           <div className="location-grid">
-            {locations.map(([label, name, detail], index) => (
-              <div key={label} className={`loc-card reveal reveal-d${index + 1}`}>
+            {locations.map(([label, name, detail, url], index) => (
+              <Link target="_blank" rel="noopener noreferrer" href={url} key={label} className={`loc-card reveal reveal-d${index + 1}`}>
                 <b>{t(label)}</b>
                 <span className="loc-name">{t(name)}</span>
                 <small>{t(detail)}</small>
-              </div>
+              </Link>
             ))}
           </div>
-          <div className="map-wrap reveal">
+          {/* <div className="map-wrap reveal">
             <Image src="/assets/Road.png" alt="Tuscany wedding route map" className="tuscany-map" width={1200} height={760} sizes="(min-width: 760px) 620px, calc(100vw - 36px)" />
-          </div>
+          </div> */}
         </Section>
       </main>
     </>

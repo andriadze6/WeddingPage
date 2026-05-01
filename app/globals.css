@@ -23,7 +23,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--serif);
+  /* font-family: var(--geo); */
   overflow-x: hidden;
 }
 button { font: inherit; }
@@ -64,18 +64,12 @@ button { font: inherit; }
   }
 .envelope-screen.open { opacity: 0; transform: translateY(-100vh); pointer-events: none; }
 .env-hint {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--serif);
+  /* font-family: var(--geo); */
   font-size: 16px;
   letter-spacing: .18em;
   padding: 8px 16px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(6px);
-  color: #1F3D2B;
+  color: var(--darkColor);
   white-space: nowrap;
   animation: hint-pulse 2s ease-in-out infinite;
 }
@@ -163,9 +157,9 @@ button { font: inherit; }
 .env-card-peek {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   width: 100%;
   height: 100%;
   background: white;
@@ -174,15 +168,14 @@ button { font: inherit; }
   text-align: center;
 }
 .env-card-peek .script {
-  font-family: var(--serif);
+  /* font-family: var(--geo); */
   font-size: 30px;
   color: var(--sepia);
   display: block;
   line-height: 1;
-  margin-bottom: 6px;
 }
 .env-card-peek small {
-  font-family: var(--serif);
+  /* font-family: var(--geo); */
   font-size: 12px;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -227,7 +220,7 @@ button { font: inherit; }
   padding: 8px 12px;
   color: var(--sepia);
   cursor: pointer;
-  font-family: var(--geo);
+  /* font-family: var(--geo); */
   font-size: 13px;
   transition: .2s;
 }
@@ -366,7 +359,7 @@ button { font: inherit; }
 }
 .names span {
   display: block;
-  font-family: var(--geo);
+  /* font-family: var(--geo); */
   font-size: 19px;
   color: var(--terracotta);
   margin: 14px 0;
@@ -404,7 +397,6 @@ button { font: inherit; }
   color: #8d7c65;
 }
 h2 {
-  font-family: var(--script);
   font-size: 48px;
   font-weight: 400;
   line-height: .96;
@@ -431,14 +423,13 @@ h2 {
   54% { transform: scale(1.05); }
 }
 .story-text { 
-    color: var(--darkColor);
+    color: var(--terracotta);
     font-weight: 600;
     font-size: 14px;
     /* letter-spacing: .3em; */
 }
 .signature { 
-  font-family: var(--script); 
-  font-size: 50px; color: var(--terracotta);
+  font-size: 40px; color: var(--terracotta);
 }
 .ornament {
   display: flex;
@@ -446,14 +437,34 @@ h2 {
   gap: 12px;
   justify-content: center;
   /* margin: 20px 0; */
-  color: var(--darkColor);
+  color: var(--terracotta);
   font-size: 18px;
 }
 .ornament::before,
-.ornament::after { content: ""; flex: 1; max-width: 80px; height: 0.5px; background:var(--darkColor) }
-.subtitle { color: #796b58; font-style: italic; margin-bottom: 10px; }
-.timeline { max-width: 500px; margin: 32px auto 0; text-align: left; position: relative; }
-.timeline::before { content: ""; position: absolute; left: 64px; top: 22px; bottom: 22px; width: 1px; background: rgba(184, 120, 88, .4); }
+.ornament::after { content: ""; flex: 1; max-width: 80px; height: 0.5px; background:var(--terracotta) }
+.subtitle { 
+  color: var(--terracotta);
+  font-style: italic; 
+  margin-bottom: 10px; 
+}
+.timeline { 
+  max-width: 500px; 
+  margin: 0 auto 0; 
+  text-align: left; 
+  position: relative;
+   color: var(--sepia); 
+  font-style: italic; font-size: 20px; 
+  font-weight: 600;
+}
+.timeline::before { 
+  content: ""; 
+  position: absolute; 
+  left: 64px; 
+  top: 22px; 
+  bottom: 22px; 
+  width: 1px; 
+  background: var(--sepia); 
+}
 .timeline-item { display: grid; grid-template-columns: 52px 1fr; gap: 26px; padding: 14px 0; position: relative; }
 .timeline-item::before {
   content: "";
@@ -464,11 +475,22 @@ h2 {
   height: 11px;
   border-radius: 50%;
   background: white;
-  border: 2px solid var(--terracotta);
+  border: 2px solid var(--sepia);
 }
-time { color: var(--terracotta); font-weight: 600; font-size: 17px; text-align: right; padding-top: 2px; }
+time { 
+  color: var(--terracotta); 
+  font-weight: 800; 
+  font-size: 17px; 
+  text-align: right; 
+  padding-top: 2px; 
+}
 .tl-main { font-size: 19px; margin-bottom: 2px; }
-.tl-sub { color: #81715c; font-style: italic; font-size: 15px; }
+.tl-sub { 
+  color: var(--terracotta); 
+  font-style: italic; 
+  font-size: 16px; 
+  font-weight: 600;
+}
 .intro { font-size: 18px; line-height: 1.9; color: #6e5f4b; font-style: italic; margin-bottom: 4px; }
 .location-grid { display: grid; gap: 14px; margin-top: 28px; }
 .loc-card {
@@ -506,6 +528,9 @@ time { color: var(--terracotta); font-weight: 600; font-size: 17px; text-align: 
 
 
 @media screen and (max-width: 750px) {
+  h2{
+    font-size: 30px;
+  }
   .envelope-screen{
       background:
     url("/assets/vinci_watercolor_3x4.svg") center / cover no-repeat,
