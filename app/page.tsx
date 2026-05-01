@@ -39,7 +39,7 @@ const programme = [
 ] as const;
 
 const locations = [
-  ["loc1.label", "loc1.name", "loc1.detail", ""],
+  ["loc1.label", "loc1.name", "loc1.detail", "https://www.google.com/maps/place/Porta+Pisana/@43.7195573,10.9445634,3a,75y/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgICJv-WevAE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAPNQkAGbG352QMl_BpLW56uoh3FpXJ9betTpolSmcsHljD6jmba8-kHRx8uMApWRJ5C1C6QA9Ioi0bigvAH93xG3P6JynHjMdR1x-X5pMRfYtNSfMdqoMv-xxB64BuQZAGgSepEexjw2mQ%3Dw203-h305-k-no!7i3264!8i4912!4m7!3m6!1s0x132a698da289908b:0x42c8ea34229d9380!8m2!3d43.7195989!4d10.944607!10e5!16s%2Fg%2F11gt__6lh4?entry=ttu&g_ep=EgoyMDI2MDQyOC4wIKXMDSoASAFQAw%3D%3D"],
   ["loc2.label", "loc2.name", "loc2.detail", "https://www.google.com/maps/place/Azienda+Agrituristica+Musignano/data=!4m2!3m1!1s0x0:0x70de6bce7c35a158?sa=X&ved=1t:2428&ictx=111"],
   ["loc3.label", "loc3.name", "loc3.detail", "https://www.google.com/maps/place/Agriturismo+Il+Piastrino/data=!4m2!3m1!1s0x132a66c61f8d0353:0x891b99f8190d3e1d?sa=X&ved=1t:242&ictx=111"],
 ] as const;
@@ -163,6 +163,10 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           ))}
         </nav>
       </div>
+      {/* <div className="env-hands" aria-hidden="true">
+        <Image className="env-hand env-hand-left" src="/assets/left-hand.png" alt="" width={170} height={170} priority />
+        <Image className="env-hand env-hand-right" src="/assets/right-hand.png" alt="" width={170} height={170} priority />
+      </div> */}
       {!hideEnvelope ? (
         <div  className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
           <div
