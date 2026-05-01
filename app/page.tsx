@@ -292,15 +292,15 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
                 <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
                 <h2 className="reveal reveal-d1">{t("story.title")}</h2>
                 <div className="ornament reveal reveal-d2">✦</div>
-                {/* <span className="vitruvian-heart reveal reveal-d2" aria-hidden="true">
+                <span className="vitruvian-heart reveal reveal-d2" aria-hidden="true">
                   <Image
                     className="vitruvian"
-                    src="/assets/floral_heart.webp"
+                    src="/assets/ChatGPT Image May 2, 2026, 02_12_57 AM.png"
                     alt=""
                     width={220}
                     height={330}
                   />
-                </span> */}
+                </span>
                 <p className="story-text reveal reveal-d2">{t("story.text")}</p>
                 <p className="signature reveal reveal-d3">{t("story.signature")}</p>
             </article>
