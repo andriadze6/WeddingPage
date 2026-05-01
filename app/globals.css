@@ -79,6 +79,14 @@ button { font: inherit; }
   place-items: center;
   transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
   }
+  .page_4_wrapper{
+    background:url("/assets/olive16.webp") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
+      backdrop-filter: blur(4px);
+    display: grid;
+    place-items: center;
+    transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
+  }
 .envelope-screen.open { opacity: 0; transform: translateY(-100vh); pointer-events: none; }
 .env-hint {
   /* font-family: var(--geo); */
@@ -625,6 +633,10 @@ time {
   }
   .page_3_wrapper{
     background:url("/assets/musignano3x4.webp") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
+  }
+  .page_4_wrapper{
+    background:url("/assets/trasn9ovil.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   }
   /* .lang-switcher{

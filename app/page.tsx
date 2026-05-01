@@ -330,23 +330,23 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
             </article>
           </section>
 
-          <Section whiteCard = {true} id="s-locations" image="/assets/agriturismo_il_piastrino.webp" color="#C9D3C2" wide>
-            <p className="eyebrow">{t("venue.eyebrow")}</p>
-            <h2>{t("venue.title")}</h2>
-            <p className="intro">{t("venue.intro")}</p>
-            <div className="location-grid">
-              {locations.map(([label, name, detail, url], index) => (
-                <Link target="_blank" rel="noopener noreferrer" href={url} key={label} className={`loc-card reveal reveal-d${index + 1}`}>
-                  <b>{t(label)}</b>
-                  <span className="loc-name">{t(name)}</span>
-                  <small>{t(detail)}</small>
-                </Link>
-              ))}
-            </div>
-            {/* <div className="map-wrap reveal">
-              <Image src="/assets/Road.png" alt="Tuscany wedding route map" className="tuscany-map" width={1200} height={760} sizes="(min-width: 760px) 620px, calc(100vw - 36px)" />
-            </div> */}
-          </Section>
+
+          <section className="section page_4_wrapper">
+            <article className={`white-card reveal`}>
+              <p className="eyebrow">{t("venue.eyebrow")}</p>
+              <h2>{t("venue.title")}</h2>
+              <p className="intro">{t("venue.intro")}</p>
+              <div className="location-grid">
+                {locations.map(([label, name, detail, url], index) => (
+                  <Link target="_blank" rel="noopener noreferrer" href={url} key={label} className={`loc-card reveal reveal-d${index + 1}`}>
+                    <b>{t(label)}</b>
+                    <span className="loc-name">{t(name)}</span>
+                    <small>{t(detail)}</small>
+                  </Link>
+                ))}
+              </div>
+            </article>
+          </section>
         </main>
       )
       }
