@@ -286,7 +286,9 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           </div>
 
 
-          <section className="section page_2_wrapper">
+          <section style={{
+            display:"list-item"
+          }} className="section page_2_wrapper">
             <div className="over_laye"></div>
             <article className={`white-card reveal}`}>
                 <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
