@@ -6,9 +6,9 @@
   --paper: #fffdf7;
   --ink: #5b4b39;
   --darkColor: #272625;
-  --sepia: #eea144;
-  --gold: #b59a66;
-  --terracotta: #b87858;
+  --sepia: #d67000;
+  --gold: linear-gradient(160deg, #d69513, #928911);
+  --terracotta: #945535;
   --olive: #899878;
   --shadow: 0 22px 70px rgba(67, 48, 30, .22);
   --serif: "Cormorant Garamond", "Noto Serif Georgian", serif;
@@ -33,12 +33,35 @@ button { font: inherit; }
   inset: 0;
   z-index: 999;
   background:
-    url("/assets/vinci_watercolor_1x1.svg") center / cover no-repeat,
+    url("/assets/vinci_watercolor_1x1.svg") center / cover no-repeat;
+  display: grid;
+  place-items: center;
+  transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
+}
+.page_1_wrapper{
+    background:
+    url("/assets/Page1.png") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   display: grid;
   place-items: center;
   transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
 }
+.page_2_wrapper{
+  background:
+    url("/assets/Agriturismo Il piastrino.png") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
+  display: grid;
+  place-items: center;
+  transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
+}
+.page_3_wrapper{
+    background:url("/assets/musignano.png") center / cover no-repeat,
+        radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
+  }
 .envelope-screen.open { opacity: 0; transform: translateY(-100vh); pointer-events: none; }
 .env-hint {
   position: absolute;
@@ -48,12 +71,15 @@ button { font: inherit; }
   font-family: var(--serif);
   font-size: 16px;
   letter-spacing: .18em;
-  color: black;
-  opacity: .7;
-  animation: hint-pulse 2s ease-in-out infinite;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(6px);
+  color: #1F3D2B;
   white-space: nowrap;
+  animation: hint-pulse 2s ease-in-out infinite;
 }
-@keyframes hint-pulse { 0%, 100% { opacity: .4; } 50% { opacity: .85; } }
+@keyframes hint-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: .85; } }
 .envelope {
   cursor: pointer;
   filter: drop-shadow(0 30px 60px rgba(100, 60, 10, .25));
@@ -254,6 +280,8 @@ button { font: inherit; }
 }
 .section {
   min-height: 100svh;
+  /* padding-left: 20px;
+  padding-right:20px; */
   padding: 20px;
   /* display: flex;
   align-items: center;
@@ -285,7 +313,7 @@ button { font: inherit; }
   z-index: 3;
   width: min(680px, 100%);
   margin: auto;
-  padding: 20px 24px;
+  padding: 20px;
   background: rgba(255, 253, 247, .72);
   border: 1px solid rgba(181, 154, 102, .38);
   box-shadow: 0 30px 80px rgba(67, 48, 30, .18), inset 0 1px 0 rgba(255, 255, 255, .8);
@@ -308,7 +336,7 @@ button { font: inherit; }
     text-align: center;
 }
 .eyebrow {
-  color: var(--darkColor);
+  color: var(--sepia);
   font-weight: 600;
   font-size: 14px;
   letter-spacing: .3em;
@@ -380,23 +408,49 @@ h2 {
   font-size: 48px;
   font-weight: 400;
   line-height: .96;
-  margin: 0 0 20px;
+  /* margin: 0 0 20px; */
   color: var(--sepia);
 }
-.vitruvian { width: 90px; color: var(--terracotta); opacity: .4; margin: 4px auto 22px; }
-.story-text { font-size: 18px; line-height: 1.9; color: #6e5f4b; margin-bottom: 8px; }
-.signature { font-family: var(--script); font-size: 50px; color: var(--terracotta); margin-top: 12px; }
+.vitruvian-heart {
+  display: block;
+  width: 96px;
+  margin: 4px auto;
+}
+.vitruvian {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: heart-beat 1.65s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px rgba(184, 120, 88, .18));
+  transform-origin: center;
+}
+@keyframes heart-beat {
+  0%, 42%, 70%, 100% { transform: scale(1); }
+  18% { transform: scale(1.08); }
+  30% { transform: scale(.98); }
+  54% { transform: scale(1.05); }
+}
+.story-text { 
+    color: var(--darkColor);
+    font-weight: 600;
+    font-size: 14px;
+    /* letter-spacing: .3em; */
+}
+.signature { 
+  font-family: var(--script); 
+  font-size: 50px; color: var(--terracotta);
+}
 .ornament {
   display: flex;
   align-items: center;
   gap: 12px;
   justify-content: center;
-  margin: 20px 0;
-  color: rgba(181, 154, 102, .6);
+  /* margin: 20px 0; */
+  color: var(--darkColor);
   font-size: 18px;
 }
 .ornament::before,
-.ornament::after { content: ""; flex: 1; max-width: 80px; height: 1px; background: rgba(181, 154, 102, .35); }
+.ornament::after { content: ""; flex: 1; max-width: 80px; height: 0.5px; background:var(--darkColor) }
 .subtitle { color: #796b58; font-style: italic; margin-bottom: 10px; }
 .timeline { max-width: 500px; margin: 32px auto 0; text-align: left; position: relative; }
 .timeline::before { content: ""; position: absolute; left: 64px; top: 22px; bottom: 22px; width: 1px; background: rgba(184, 120, 88, .4); }
@@ -455,8 +509,22 @@ time { color: var(--terracotta); font-weight: 600; font-size: 17px; text-align: 
   .envelope-screen{
       background:
     url("/assets/vinci_watercolor_3x4.svg") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }  .lang-btn{
     padding: 9px;
+  }
+  .page_1_wrapper{
+      background:
+    url("/assets/page13X4.png") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
+  }
+  .page_2_wrapper{
+      background:url("/assets/agriturismo_il_piastrino_3x4.png") center / cover no-repeat,
+      radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
+  }
+  .page_3_wrapper{
+    background:url("/assets/musignano3x4.png") center / cover no-repeat,
+    radial-gradient(ellipse at 50% 40%, #fff9f0 0%, #e9d4b0 60%, #d4b882 100%);
   }
   /* .lang-switcher{
     top: 5px;

@@ -60,8 +60,6 @@ function Section({ id, image, color, wide, children, whiteCard = true }: Section
 
   return (
     <section className="section" id={id} style={style}>
-      <div className="section-overlay" />
-      <div className="section-grain" />
       <article className={`${whiteCard ? "white-card" : "white-card_none_background"} reveal${wide ? " wide" : ""}`}>{children}</article>
     </section>
   );
@@ -203,7 +201,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           height:"100%",
           display:"flex",
           flexDirection:"column",
-        }}>
+        }} className="page_1_wrapper">
           <div className="lang-wrap">
             <nav className="lang-switcher" aria-label="language">
               {(["ka", "en", "it"] as const).map((item) => (
@@ -213,8 +211,8 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               ))}
             </nav>
           </div>
-          <Section whiteCard = {true} id="s-hero" 
-          image={isMobile? "/assets/page13X4.png" : "/assets/Page1.png"} color="#c8b898">
+          <Section whiteCard = {false} id="s-hero" 
+          image="" color="#c8b898">
             <Image
               className="bird-sketch"
               src="/assets/flying_machine_watercolor.svg"
@@ -223,7 +221,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               height={1024}
               priority
             />
-            <p className="eyebrow">{t("hero.eyebrow")}</p>
+            {/* <p className="eyebrow">{t("hero.eyebrow")}</p> */}
             <h1 className="names">
               {t("hero.Anano")}
               <span>{t("hero.amp")}</span>
@@ -238,46 +236,49 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               <div><strong>{countdown.seconds}</strong><span>{t("countdown.seconds")}</span></div>
             </div>
           </Section>
-            {/* <div className="image_div_background">
-              <Image
-              src={"/assets/tuscany.png"}
-              width={1536}
-              height={1024}
-              alt=""
-              />
-            </div> */}
         </div>
 
 
-        <Section whiteCard = {true} id="s-story" image="/assets/vinci.png" color="#c0b08a">
-          <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
-          <h2 className="reveal reveal-d1">{t("story.title")}</h2>
-          <div className="ornament reveal reveal-d2">✦</div>
-          <svg className="vitruvian reveal reveal-d2" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <circle cx="50" cy="50" r="39" />
-            <circle cx="50" cy="50" r="28" opacity=".45" />
-            <path d="M50 15v70M15 50h70M28 28l44 44M72 28L28 72" opacity=".35" />
-          </svg>
-          <p className="story-text reveal reveal-d2">{t("story.text")}</p>
-          <p className="signature reveal reveal-d3">{t("story.signature")}</p>
-        </Section>
+        <section className="section page_2_wrapper">
+          <article className={`white-card reveal}`}>
+              <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
+              <h2 className="reveal reveal-d1">{t("story.title")}</h2>
+              <div className="ornament reveal reveal-d2">✦</div>
+              <span className="vitruvian-heart reveal reveal-d2" aria-hidden="true">
+                <Image
+                  className="vitruvian"
+                  src="/assets/floral_heart.svg"
+                  alt=""
+                  width={1024}
+                  height={1536}
+                />
+              </span>
+              <p className="story-text reveal reveal-d2">{t("story.text")}</p>
+              <p className="signature reveal reveal-d3">{t("story.signature")}</p>
+              </article>
+        </section>
 
-        <Section  whiteCard = {true} id="s-programme" image="/assets/musignano.png" color="#c8b48a">
-          <p className="eyebrow">{t("programme.eyebrow")}</p>
-          <h2>{t("programme.title")}</h2>
-          <p className="subtitle">{t("programme.subtitle")}</p>
-          <div className="timeline">
-            {programme.map(([time, title, place], index) => (
-              <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
-                <time>{time}</time>
-                <div>
-                  <p className="tl-main">{t(title)}</p>
-                  <p className="tl-sub">{place === "heart" ? "♡" : t(place)}</p>
+        {/* <Section whiteCard = {false} id="s-story" image="/assets/vinci.png" color="#c0b08a">
+
+        </Section> */}
+        <section className="section page_3_wrapper">
+          <article className={`white-card reveal`}>
+            <p className="eyebrow">{t("programme.eyebrow")}</p>
+            <h2>{t("programme.title")}</h2>
+            <p className="subtitle">{t("programme.subtitle")}</p>
+            <div className="timeline">
+              {programme.map(([time, title, place], index) => (
+                <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
+                  <time>{time}</time>
+                  <div>
+                    <p className="tl-main">{t(title)}</p>
+                    <p className="tl-sub">{place === "heart" ? "♡" : t(place)}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Section>
+              ))}
+            </div>
+          </article>
+        </section>
 
         <Section whiteCard = {true} id="s-locations" image="/assets/il-piastrino.png" color="#c8b490" wide>
           <p className="eyebrow">{t("venue.eyebrow")}</p>
