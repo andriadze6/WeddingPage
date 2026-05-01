@@ -1,0 +1,74 @@
+{
+  "envelope": {
+    "names": "Giorgi & Anano",
+    "click": "Click to open the invitation"
+  },
+  "hero": {
+    "eyebrow": "You are invited to our wedding",
+    "amp": "&",
+    "date": "June 4 2026",
+    "location": "Vinci · Tuscany · Italy",
+    "Giorgi": "Giorgi",
+    "Anano": "Anano"
+  },
+  "countdown": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "min",
+    "seconds": "sec"
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "title": "How We Met",
+    "text": "We first met in Kutaisi on a morning bus to school. That simple morning became the beginning of our story. Years later, that road led us all the way to the hills of Tuscany.",
+    "signature": "Anano & Giorgi"
+  },
+  "programme": {
+    "eyebrow": "Programme",
+    "title": "Wedding Day",
+    "subtitle": "June 4, 2026"
+  },
+  "event1": {
+    "title": "Guest Arrival",
+    "place": "Chiesa di Empoli"
+  },
+  "event2": {
+    "title": "Wedding Ceremony",
+    "place": "Empoli"
+  },
+  "event3": {
+    "title": "Aperitivo",
+    "place": "Musignano"
+  },
+  "event4": {
+    "title": "Dinner",
+    "place": "Musignano"
+  },
+  "event5": {
+    "title": "First Dance"
+  },
+  "event6": {
+    "title": "Dancing & Music",
+    "place": "Under the Stars"
+  },
+  "venue": {
+    "eyebrow": "Venues",
+    "title": "Vinci — Tuscany",
+    "intro": "In the heart of Tuscany, surrounded by olive trees and vineyards, we will celebrate our day together."
+  },
+  "loc1": {
+    "label": "Ceremony",
+    "name": "Chiesa di Empoli",
+    "detail": "Wedding — Empoli"
+  },
+  "loc2": {
+    "label": "Reception",
+    "name": "Musignano",
+    "detail": "Aperitivo, Dinner & Dancing"
+  },
+  "loc3": {
+    "label": "Hotel",
+    "name": "Agriturismo Il Piastrino",
+    "detail": "Our main accommodation"
+  }
+}

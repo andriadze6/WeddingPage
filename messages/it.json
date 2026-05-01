@@ -1,0 +1,74 @@
+{
+  "envelope":{
+    "names":"Giorgi e Anano",
+    "click":"Clicca per aprire l'invito"
+  },
+  "hero": {
+    "eyebrow": "Siete invitati al nostro matrimonio",
+    "amp": "e",
+    "date": "4 Giugno 2026",
+    "location": "Vinci · Toscana · Italia",
+    "Giorgi":"Giorgi",
+    "Anano":"Anano"
+  },
+  "countdown": {
+    "days": "giorni",
+    "hours": "ore",
+    "minutes": "min",
+    "seconds": "sec"
+  },
+  "story": {
+    "eyebrow": "La Nostra Storia",
+    "title": "Come Ci Siamo Incontrati",
+    "text": "Ci siamo incontrati per la prima volta a Kutaisi su un autobus mattutino verso scuola. Quella semplice mattina divenne l'inizio della nostra storia. Anni dopo, quella strada ci ha portati fino alle colline della Toscana.",
+    "signature": "Anano e Giorgi"
+  },
+  "programme": {
+    "eyebrow": "Programma",
+    "title": "Il Giorno del Matrimonio",
+    "subtitle": "4 Giugno 2026"
+  },
+  "event1": {
+    "title": "Accoglienza degli ospiti",
+    "place": "Chiesa di Empoli"
+  },
+  "event2": {
+    "title": "Cerimonia nuziale",
+    "place": "Empoli"
+  },
+  "event3": {
+    "title": "Aperitivo",
+    "place": "Musignano"
+  },
+  "event4": {
+    "title": "Cena",
+    "place": "Musignano"
+  },
+  "event5": {
+    "title": "Primo ballo"
+  },
+  "event6": {
+    "title": "Ballo e musica",
+    "place": "Sotto le stelle"
+  },
+  "venue": {
+    "eyebrow": "Luoghi",
+    "title": "Vinci — Toscana",
+    "intro": "Nel cuore della Toscana, circondati da ulivi e vigneti, celebreremo il nostro giorno insieme."
+  },
+  "loc1": {
+    "label": "Cerimonia",
+    "name": "Chiesa di Empoli",
+    "detail": "Matrimonio — Empoli"
+  },
+  "loc2": {
+    "label": "Ricevimento",
+    "name": "Musignano",
+    "detail": "Aperitivo, Cena e Ballo"
+  },
+  "loc3": {
+    "label": "Hotel",
+    "name": "Agriturismo Il Piastrino",
+    "detail": "La nostra struttura principale"
+  }
+}
