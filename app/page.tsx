@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
-import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import enMessages from "@/messages/en.json";
 import itMessages from "@/messages/it.json";
 import kaMessages from "@/messages/ka.json";
@@ -96,6 +96,25 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   const hasTriedAutoPlayRef = useRef(false);
   const t = useTranslations();
 
+  const playMusic = useCallback(async () => {
+    const audio = audioRef.current;
+    if (!audio) return false;
+
+    if (!audio.paused) {
+      setIsMusicPlaying(true);
+      return true;
+    }
+
+    try {
+      await audio.play();
+      setIsMusicPlaying(true);
+      return true;
+    } catch {
+      setIsMusicPlaying(false);
+      return false;
+    }
+  }, []);
+
   useEffect(() => {
     const initialTimer = window.setTimeout(() => setCountdown(getCountdown()), 0);
     const timer = window.setInterval(() => setCountdown(getCountdown()), 1000);
@@ -119,13 +138,25 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     if (hasTriedAutoPlayRef.current) return;
 
     hasTriedAutoPlayRef.current = true;
-    const audio = audioRef.current;
-    if (!audio) return;
+    void playMusic();
+  }, [playMusic]);
 
-    audio.play()
-      .then(() => setIsMusicPlaying(true))
-      .catch(() => setIsMusicPlaying(false));
-  }, []);
+  useEffect(() => {
+    const events = ["pointerdown", "keydown", "touchstart"] as const;
+
+    const startMusic = () => {
+      void playMusic().then((didPlay) => {
+        if (!didPlay) return;
+        events.forEach((event) => window.removeEventListener(event, startMusic));
+      });
+    };
+
+    events.forEach((event) => window.addEventListener(event, startMusic, { passive: true }));
+
+    return () => {
+      events.forEach((event) => window.removeEventListener(event, startMusic));
+    };
+  }, [playMusic]);
 
   const font =  useMemo(() => {
     if(locale === "en"){
@@ -154,12 +185,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     if (!audio) return;
 
     if (audio.paused) {
-      try {
-        await audio.play();
-        setIsMusicPlaying(true);
-      } catch {
-        setIsMusicPlaying(false);
-      }
+      await playMusic();
     } else {
       audio.pause();
       setIsMusicPlaying(false);
