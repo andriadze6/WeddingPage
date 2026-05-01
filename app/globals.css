@@ -266,18 +266,19 @@ button { font: inherit; }
 }
 
 .lang-wrap{
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: end;
   z-index: 999;
+  right: 5px;
 }
 .section {
   min-height: 100svh;
   /* padding-left: 20px;
   padding-right:20px; */
   padding: 20px;
-  /* display: flex;
-  align-items: center;
+  display: flex;
+  /* align-items: center;
   justify-content: center; */
   position: relative;
   overflow: hidden;

@@ -154,7 +154,16 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
 
   return (
     <>
-      {!hideEnvelope && (
+      <div className="lang-wrap">
+        <nav className="lang-switcher" aria-label="language">
+          {(["ka", "en", "it"] as const).map((item) => (
+            <button key={item} className={`lang-btn${locale === item ? " active" : ""}`} onClick={() => setLocale(item)}>
+              {item === "ka" ? "ქარ" : item.toUpperCase()}
+            </button>
+          ))}
+        </nav>
+      </div>
+      {!hideEnvelope ? (
         <div style={{fontFamily: `var(--${font})`}} className={`envelope-screen${isEnvelopeOpen ? " open" : ""}`}>
           <div
             className="envelope-form-wrap envelope"
@@ -187,7 +196,109 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
             </div>
           </div>
         </div>
-      )}
+      ):
+      (
+        <main style={{
+          display:"flex",
+          flexDirection:"column",
+        }}>
+          <div style={{
+            position:"relative",
+            width:"100%",
+            height:"100%",
+            display:"flex",
+            flexDirection:"column",
+          }} className="page_1_wrapper">
+
+            <Section whiteCard = {false} id="s-hero" 
+            image="" color="#c8b898">
+              <Image
+                className="bird-sketch"
+                src="/assets/flying_machine_watercolor.webp"
+                alt=""
+                width={1200}
+                height={800}
+                priority
+              />
+              {/* <p className="eyebrow">{t("hero.eyebrow")}</p> */}
+              <h1 className="names">
+                {t("hero.Anano")}
+                <span>{t("hero.amp")}</span>
+                {t("hero.Giorgi")}
+              </h1>
+              <p className="date">{t("hero.date")}</p>
+              <p className="place">{t("hero.location")}</p>
+              <div className="countdown">
+                <div><strong>{countdown.days}</strong><span>{t("countdown.days")}</span></div>
+                <div><strong>{countdown.hours}</strong><span>{t("countdown.hours")}</span></div>
+                <div><strong>{countdown.minutes}</strong><span>{t("countdown.minutes")}</span></div>
+                <div><strong>{countdown.seconds}</strong><span>{t("countdown.seconds")}</span></div>
+              </div>
+            </Section>
+          </div>
+
+
+          <section className="section page_2_wrapper">
+            <article className={`white-card reveal}`}>
+                <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
+                <h2 className="reveal reveal-d1">{t("story.title")}</h2>
+                <div className="ornament reveal reveal-d2">✦</div>
+                <span className="vitruvian-heart reveal reveal-d2" aria-hidden="true">
+                  <Image
+                    className="vitruvian"
+                    src="/assets/floral_heart.webp"
+                    alt=""
+                    width={220}
+                    height={330}
+                  />
+                </span>
+                <p className="story-text reveal reveal-d2">{t("story.text")}</p>
+                <p className="signature reveal reveal-d3">{t("story.signature")}</p>
+                </article>
+          </section>
+
+          {/* <Section whiteCard = {false} id="s-story" image="/assets/vinci.png" color="#c0b08a">
+
+          </Section> */}
+          <section className="section page_3_wrapper">
+            <article className={`white-card reveal`}>
+              <p className="eyebrow">{t("programme.eyebrow")}</p>
+              <h2>{t("programme.title")}</h2>
+              <p className="subtitle">{t("programme.subtitle")}</p>
+              <div className="timeline">
+                {programme.map(([time, title, place], index) => (
+                  <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
+                    <time>{time}</time>
+                    <div>
+                      <p className="tl-main">{t(title)}</p>
+                      <p className="tl-sub">{place === "heart" ? "♡" : t(place)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </section>
+
+          <Section whiteCard = {true} id="s-locations" image="/assets/agriturismo_il_piastrino.webp" color="#c8b490" wide>
+            <p className="eyebrow">{t("venue.eyebrow")}</p>
+            <h2>{t("venue.title")}</h2>
+            <p className="intro">{t("venue.intro")}</p>
+            <div className="location-grid">
+              {locations.map(([label, name, detail, url], index) => (
+                <Link target="_blank" rel="noopener noreferrer" href={url} key={label} className={`loc-card reveal reveal-d${index + 1}`}>
+                  <b>{t(label)}</b>
+                  <span className="loc-name">{t(name)}</span>
+                  <small>{t(detail)}</small>
+                </Link>
+              ))}
+            </div>
+            {/* <div className="map-wrap reveal">
+              <Image src="/assets/Road.png" alt="Tuscany wedding route map" className="tuscany-map" width={1200} height={760} sizes="(min-width: 760px) 620px, calc(100vw - 36px)" />
+            </div> */}
+          </Section>
+        </main>
+      )
+      }
       <button className={`music-toggle${isMusicPlaying ? " playing" : ""}`} onClick={toggleMusic} aria-label="play music">
         <span />
         <span />
@@ -198,113 +309,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
         <source src="https://cdn.pixabay.com/audio/2022/10/14/audio_3946a7c3a3.mp3" type="audio/mpeg" />
       </audio>
 
-      <main style={{
-        display:"flex",
-        flexDirection:"column",
-      }}>
-        <div style={{
-          position:"relative",
-          width:"100%",
-          height:"100%",
-          display:"flex",
-          flexDirection:"column",
-        }} className="page_1_wrapper">
-          <div className="lang-wrap">
-            <nav className="lang-switcher" aria-label="language">
-              {(["ka", "en", "it"] as const).map((item) => (
-                <button key={item} className={`lang-btn${locale === item ? " active" : ""}`} onClick={() => setLocale(item)}>
-                  {item === "ka" ? "ქარ" : item.toUpperCase()}
-                </button>
-              ))}
-            </nav>
-          </div>
-          <Section whiteCard = {false} id="s-hero" 
-          image="" color="#c8b898">
-            <Image
-              className="bird-sketch"
-              src="/assets/flying_machine_watercolor.webp"
-              alt=""
-              width={1200}
-              height={800}
-              priority
-            />
-            {/* <p className="eyebrow">{t("hero.eyebrow")}</p> */}
-            <h1 className="names">
-              {t("hero.Anano")}
-              <span>{t("hero.amp")}</span>
-              {t("hero.Giorgi")}
-            </h1>
-            <p className="date">{t("hero.date")}</p>
-            <p className="place">{t("hero.location")}</p>
-            <div className="countdown">
-              <div><strong>{countdown.days}</strong><span>{t("countdown.days")}</span></div>
-              <div><strong>{countdown.hours}</strong><span>{t("countdown.hours")}</span></div>
-              <div><strong>{countdown.minutes}</strong><span>{t("countdown.minutes")}</span></div>
-              <div><strong>{countdown.seconds}</strong><span>{t("countdown.seconds")}</span></div>
-            </div>
-          </Section>
-        </div>
 
-
-        <section className="section page_2_wrapper">
-          <article className={`white-card reveal}`}>
-              <p className="eyebrow reveal reveal-d1">{t("story.eyebrow")}</p>
-              <h2 className="reveal reveal-d1">{t("story.title")}</h2>
-              <div className="ornament reveal reveal-d2">✦</div>
-              <span className="vitruvian-heart reveal reveal-d2" aria-hidden="true">
-                <Image
-                  className="vitruvian"
-                  src="/assets/floral_heart.webp"
-                  alt=""
-                  width={220}
-                  height={330}
-                />
-              </span>
-              <p className="story-text reveal reveal-d2">{t("story.text")}</p>
-              <p className="signature reveal reveal-d3">{t("story.signature")}</p>
-              </article>
-        </section>
-
-        {/* <Section whiteCard = {false} id="s-story" image="/assets/vinci.png" color="#c0b08a">
-
-        </Section> */}
-        <section className="section page_3_wrapper">
-          <article className={`white-card reveal`}>
-            <p className="eyebrow">{t("programme.eyebrow")}</p>
-            <h2>{t("programme.title")}</h2>
-            <p className="subtitle">{t("programme.subtitle")}</p>
-            <div className="timeline">
-              {programme.map(([time, title, place], index) => (
-                <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
-                  <time>{time}</time>
-                  <div>
-                    <p className="tl-main">{t(title)}</p>
-                    <p className="tl-sub">{place === "heart" ? "♡" : t(place)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </article>
-        </section>
-
-        <Section whiteCard = {true} id="s-locations" image="/assets/agriturismo_il_piastrino.webp" color="#c8b490" wide>
-          <p className="eyebrow">{t("venue.eyebrow")}</p>
-          <h2>{t("venue.title")}</h2>
-          <p className="intro">{t("venue.intro")}</p>
-          <div className="location-grid">
-            {locations.map(([label, name, detail, url], index) => (
-              <Link target="_blank" rel="noopener noreferrer" href={url} key={label} className={`loc-card reveal reveal-d${index + 1}`}>
-                <b>{t(label)}</b>
-                <span className="loc-name">{t(name)}</span>
-                <small>{t(detail)}</small>
-              </Link>
-            ))}
-          </div>
-          {/* <div className="map-wrap reveal">
-            <Image src="/assets/Road.png" alt="Tuscany wedding route map" className="tuscany-map" width={1200} height={760} sizes="(min-width: 760px) 620px, calc(100vw - 36px)" />
-          </div> */}
-        </Section>
-      </main>
     </>
   );
 }
