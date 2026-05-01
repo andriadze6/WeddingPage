@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "You are invited to our wedding",
     "amp": "&",
-    "date": "June 4 2026",
+    "date": "June 04 2026",
     "location": "Vinci · Tuscany · Italy",
     "Giorgi": "Giorgi",
     "Anano": "Anano"
@@ -31,7 +31,7 @@
   },
   "event1": {
     "title": "Guest Arrival",
-    "place": "Chiesa di Empoli"
+    "place": "Georgian Church in Empol"
   },
   "event2": {
     "title": "Wedding Ceremony",
@@ -55,11 +55,11 @@
   "venue": {
     "eyebrow": "Venues",
     "title": "Vinci — Tuscany",
-    "intro": "In the heart of Tuscany, surrounded by olive trees and vineyards, we will celebrate our day together."
+    "intro": "In the heart of Tuscany, surrounded by olive trees and vineyards, we will celebrate our day together.By clicking the buttons below, you will be able to view the exact locations on Google Maps.."
   },
   "loc1": {
     "label": "Ceremony",
-    "name": "Chiesa di Empoli",
+    "name": "Georgian Church in Empoli",
     "detail": "Wedding — Empoli"
   },
   "loc2": {

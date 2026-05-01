@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Siete invitati al nostro matrimonio",
     "amp": "e",
-    "date": "4 giugno 2026",
+    "date": "04 giugno 2026",
     "location": "Vinci · Toscana · Italia",
     "Giorgi": "Giorgi",
     "Anano": "Anano"
@@ -31,7 +31,7 @@
   },
   "event1": {
     "title": "Arrivo degli ospiti",
-    "place": "Chiesa di Empoli"
+    "place": "Chiesa Georgiana a Empoli"
   },
   "event2": {
     "title": "Cerimonia nuziale",
@@ -55,11 +55,11 @@
   "venue": {
     "eyebrow": "Luoghi",
     "title": "Vinci — Toscana",
-    "intro": "Nel cuore della Toscana, circondati da ulivi e vigneti, celebreremo insieme il nostro giorno."
+    "intro": "Nel cuore della Toscana, circondati da ulivi e vigneti, celebreremo insieme il nostro giorno speciale. Cliccando sui pulsanti qui sotto, potrete visualizzare le posizioni esatte su Google Maps.."
   },
   "loc1": {
     "label": "Cerimonia",
-    "name": "Chiesa di Empoli",
+    "name": "Chiesa Georgiana a Empoli",
     "detail": "Matrimonio — Empoli"
   },
   "loc2": {

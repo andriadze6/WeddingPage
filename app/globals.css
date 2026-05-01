@@ -504,6 +504,7 @@ h2 {
     /* letter-spacing: .3em; */
 }
 .signature { 
+  color: var(--sepia);
   font-size: 40px; color: var(--terracotta);
 }
 .ornament {

@@ -92,6 +92,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   const [showEnvelopeMassage, setShowEnvelopeMassage] = useState(false);
   const [countdown, setCountdown] = useState<CountdownValue>(initialCountdown);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [startMusicOnTouch, setStartMusicOnTouch] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const hasTriedAutoPlayRef = useRef(false);
@@ -144,8 +145,9 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   }, [playMusic]);
 
   useEffect(() => {
+    if(startMusicOnTouch) return
     const events = ["pointerdown", "keydown", "touchstart"] as const;
-
+    setStartMusicOnTouch(true)
     const startMusic = () => {
       void playMusic().then((didPlay) => {
         if (!didPlay) return;
