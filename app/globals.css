@@ -551,7 +551,7 @@ h2 {
 }
 .timeline-item { display: grid; grid-template-columns: 52px 1fr; gap: 26px; padding: 14px 0; position: relative; }
 .timeline-item::before {
-  content: "";
+  content: attr(data-label);
   position: absolute;
   left: 59px;
   top: 22px;

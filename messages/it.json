@@ -26,31 +26,48 @@
   },
   "programme": {
     "eyebrow": "Programma",
-    "title": "Il giorno del matrimonio",
+    "title": "Programma del Matrimonio",
     "subtitle": "4 giugno 2026"
   },
-  "event1": {
-    "title": "Arrivo degli ospiti",
-    "place": "Chiesa Georgiana a Empoli"
+ "event1": {
+    "title": "Accoglienza degli ospiti",
+    "place": "Agriturismp Piastrino",
+    "data-label":"🕊"
   },
   "event2": {
-    "title": "Cerimonia nuziale",
-    "place": "Empoli"
+    "title": "Cerimonia religiosa",
+    "place": "",
+    "data-label":"💍"
   },
-  "event3": {
-    "title": "Aperitivo",
-    "place": "Musignano"
+   "event3": {
+    "title": "Servizio fotografico",
+    "place": "Durante questo tempo, gli ospiti sono invitati ad attendere al ristorante",
+    "data-label":"📸"
   },
-  "event4": {
-    "title": "Cena",
-    "place": "Musignano"
+  "event4":{
+    "title": "Ingresso degli sposi",
+    "place": "Firma ufficiale",
+    "data-label":"✍️"
   },
   "event5": {
-    "title": "Primo ballo"
+    "title": "Aperitivo & Antipasto",
+    "place": "",
+    "data-label":"🍸"
   },
   "event6": {
-    "title": "Ballo e musica",
-    "place": "Sotto le stelle"
+    "title": "Cena",
+    "place": "",
+    "data-label":"🍽"
+  },
+  "event7": {
+    "title": "Taglio della torta",
+    "place": "",
+    "data-label":"🎂"
+  },
+  "event8": {
+    "title": "Festa e balli",
+    "place": "",
+    "data-label":"💃"
   },
   "venue": {
     "eyebrow": "Luoghi",

@@ -25,32 +25,49 @@
     "signature": "Anano & Giorgi"
   },
   "programme": {
-    "eyebrow": "Programme",
-    "title": "Wedding Day",
+    "eyebrow": "",
+    "title": "Wedding Day Schedule",
     "subtitle": "June 4, 2026"
   },
   "event1": {
-    "title": "Guest Arrival",
-    "place": "Georgian Church in Empol"
+    "title": "Guest arrival",
+    "place": "Agriturismp Piastrino",
+    "data-label":"🕊"
   },
   "event2": {
-    "title": "Wedding Ceremony",
-    "place": "Empoli"
+    "title": "Wedding ceremony",
+    "place": "Georgian Church in Empoli",
+    "data-label":"💍"
   },
-  "event3": {
-    "title": "Aperitivo",
-    "place": "Musignano"
+   "event3": {
+    "title": "ფოტოსესია",
+    "place": "ამ დროის განმავლობაში სტუმრებს ველით რესტორანში",
+    "data-label":"📸"
   },
-  "event4": {
-    "title": "Dinner",
-    "place": "Musignano"
+  "event4":{
+    "title": "Grand entrance of the newlyweds",
+    "place": "Signing ceremony",
+    "data-label":"✍️"
   },
   "event5": {
-    "title": "First Dance"
+    "title": "Aperitivo & Antipasto",
+    "place": "Aperitivo & Antipasto are an important part of Italian culture — we will welcome our guests with a selection of carefully chosen appetizers, along with traditional Tuscan white and red wines, and cocktails.",
+    "data-label":"🍸"
   },
   "event6": {
-    "title": "Dancing & Music",
-    "place": "Under the Stars"
+    "title": "Dinner",
+    "place": "Italian-traditional cuisine",
+    "data-label":"🍽"
+  },
+  "event7": {
+    "title": "Cake cutting",
+    "place": "",
+    "data-label":"🎂"
+  },
+  "event8": {
+    "title": "Party & dancing",
+    "place": "",
+    "data-label":"💃"
   },
   "venue": {
     "eyebrow": "Venues",

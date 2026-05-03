@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
-import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
 import enMessages from "@/messages/en.json";
 import itMessages from "@/messages/it.json";
 import kaMessages from "@/messages/ka.json";
@@ -31,12 +31,14 @@ const initialCountdown: CountdownValue = { days: "--", hours: "--", minutes: "--
 const musicStartTime = 17;
 
 const programme = [
-  ["15:30", "event1.title", "event1.place"],
-  ["16:00", "event2.title", "event2.place"],
-  ["18:00", "event3.title", "event3.place"],
-  ["20:00", "event4.title", "event4.place"],
-  ["22:30", "event5.title", "heart"],
-  ["23:00", "event6.title", "event6.place"],
+  ["13:30", "event1.title", "event1.place", "event1.data-label"],
+  ["14:30", "event2.title", "event2.place", "event2.data-label"],
+  ["17:00", "event3.title", "event3.place", "event3.data-label"],
+  ["17:30", "event4.title", "event4.place", "event4.data-label"],
+  ["18:15", "event5.title", "event5.place", "event5.data-label"],
+  ["19:30", "event6.title", "event6.place", "event6.data-label"],
+  ["21:30", "event7.title", "event7.place", "event7.data-label"],
+  ["22:00", "event8.title", "event8.place", "event8.data-label"],
 ] as const;
 
 const locations = [
@@ -92,10 +94,9 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   const [showEnvelopeMassage, setShowEnvelopeMassage] = useState(false);
   const [countdown, setCountdown] = useState<CountdownValue>(initialCountdown);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-  const [startMusicOnTouch, setStartMusicOnTouch] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const hasTriedAutoPlayRef = useRef(false);
+  const hasAttachedMusicStartListenersRef = useRef(false);
   const t = useTranslations();
 
   const playMusic = useCallback(async () => {
@@ -145,9 +146,10 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
   }, [playMusic]);
 
   useEffect(() => {
-    if(startMusicOnTouch) return
+    if (hasAttachedMusicStartListenersRef.current) return;
+
+    hasAttachedMusicStartListenersRef.current = true;
     const events = ["pointerdown", "keydown", "touchstart"] as const;
-    setStartMusicOnTouch(true)
     const startMusic = () => {
       void playMusic().then((didPlay) => {
         if (!didPlay) return;
@@ -159,19 +161,9 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
 
     return () => {
       events.forEach((event) => window.removeEventListener(event, startMusic));
+      hasAttachedMusicStartListenersRef.current = false;
     };
   }, [playMusic]);
-
-  const font =  useMemo(() => {
-    if(locale === "en"){
-      return "serif"
-    }else if (locale === "it"){
-      return "serif"
-    }else if (locale === "ka"){
-      return "geo"
-    }
-  }, [locale]);
-
   const openEnvelope = () => {
     setIsEnvelopeOpen(true);
     window.setTimeout(() => setHideEnvelope(true), 1300);
@@ -317,12 +309,12 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               <h2>{t("programme.title")}</h2>
               <p className="subtitle">{t("programme.subtitle")}</p>
               <div className="timeline">
-                {programme.map(([time, title, place], index) => (
+                {programme.map(([time, title, place, dataLabel], index) => (
                   <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
                     <time>{time}</time>
                     <div>
                       <p className="tl-main">{t(title)}</p>
-                      <p className="tl-sub">{place === "heart" ? "♡" : t(place)}</p>
+                      <p className="tl-sub">{t(place)}</p>
                     </div>
                   </div>
                 ))}
