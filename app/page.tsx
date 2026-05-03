@@ -309,7 +309,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               <h2>{t("programme.title")}</h2>
               <p className="subtitle">{t("programme.subtitle")}</p>
               <div className="timeline">
-                {programme.map(([time, title, place, dataLabel], index) => (
+                {programme.map(([time, title, place,], index) => (
                   <div key={`${time}-${title}`} className={`timeline-item reveal reveal-d${Math.min(3, Math.floor(index / 2) + 1)}`}>
                     <time>{time}</time>
                     <div>
