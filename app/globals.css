@@ -57,7 +57,7 @@ button { font: inherit; }
 }
 .page_1_wrapper{
     background:
-    url("/assets/Page1.webp") center / cover no-repeat,
+    url("/assets/tuscany_frame.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   display: grid;
   place-items: center;
@@ -72,7 +72,7 @@ button { font: inherit; }
   transition: opacity .9s ease, transform 1.2s cubic-bezier(.76, 0, .24, 1);
 }
 .page_3_wrapper{
-    background:url("/assets/musignano.webp") center / cover no-repeat,
+    background:url("/assets/tuscany_villa.webp") center / cover no-repeat,
         radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   backdrop-filter: blur(4px);
   display: grid;
@@ -456,8 +456,8 @@ button { font: inherit; }
   animation: car-drive-across 12s linear infinite;
 }
 @keyframes car-drive-across {
-  0%   { transform: translateX(-110%); }
-  100% { transform: translateX(110vw); }
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
 }
 .names {
   font-size: 68px;
@@ -807,14 +807,14 @@ time {
   }
   .envelope-screen{
       background:
-    url("/assets/tuscany_sunset.webp") center / cover no-repeat,
+    url("/assets/tuscany_sunset_vertical.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   }  .lang-btn{
     padding: 9px;
   }
   .page_1_wrapper{
       background:
-    url("/assets/page13X4.webp") center / cover no-repeat,
+    url("/assets/tuscany_frame_vertical.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   }
   .page_2_wrapper{
@@ -822,7 +822,7 @@ time {
       radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   }
   .page_3_wrapper{
-    background:url("/assets/musignano3x4.webp") center / cover no-repeat,
+    background:url("/assets/tuscany_villa_vertical.webp") center / cover no-repeat,
     radial-gradient(ellipse at 50% 40%, var(--accent-cream) 0%, var(--accent-light) 58%, var(--accent-green-soft) 100%);
   }
   .page_4_wrapper{

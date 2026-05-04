@@ -361,14 +361,14 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
 
             <Section whiteCard = {false} id="s-hero"
             image="" color="#A8B5A0">
-              <Image
+              {/* <Image
                 className="bird-sketch"
                 src="/assets/flying_machine_watercolor.webp"
                 alt=""
                 width={1200}
                 height={800}
                 priority
-              />
+              /> */}
               {/* <p className="eyebrow">{t("hero.eyebrow")}</p> */}
               <h1 className="names">
                 {t("hero.Anano")}
