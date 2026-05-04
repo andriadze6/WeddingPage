@@ -444,6 +444,21 @@ button { font: inherit; }
   0%, 100% { transform: translateX(-18px) translateY(1px) rotate(-2deg); }
   50% { transform: translateX(18px) translateY(-5px) rotate(2deg); }
 }
+.car-drive {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  width: clamp(180px, 28vw, 320px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 4;
+  animation: car-drive-across 12s linear infinite;
+}
+@keyframes car-drive-across {
+  0%   { transform: translateX(-110%); }
+  100% { transform: translateX(110vw); }
+}
 .names {
   font-size: 68px;
   font-weight: 400;

@@ -359,7 +359,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
             flexDirection:"column",
           }} className="page_1_wrapper">
 
-            <Section whiteCard = {false} id="s-hero" 
+            <Section whiteCard = {false} id="s-hero"
             image="" color="#A8B5A0">
               <Image
                 className="bird-sketch"
@@ -384,6 +384,13 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
                 <div><strong>{countdown.seconds}</strong><span>{t("countdown.seconds")}</span></div>
               </div>
             </Section>
+            <Image
+              className="car-drive"
+              src="/assets/just_married.webp"
+              alt=""
+              width={320}
+              height={160}
+            />
           </div>
 
 
