@@ -3,7 +3,7 @@
 
 :root {
   --primary: #A8B5A0;
-  --primary-dark: #8FA287;
+  --primary-dark: #5a8348;
   --accent-light: #EDE7E1;
   --accent-cream: #F3F1EC;
   --accent-green-soft: #8FA287;
@@ -116,7 +116,7 @@ button { font: inherit; }
   width: var(--envelope-width); 
   height: var(--envelope-height);
   background: linear-gradient(160deg, var(--env-green-deep), var(--env-green-soft));
-  border: 2px solid linear-gradient(160deg, var(--env-green-deep), var(--env-green-soft)) ;
+  /* border: 2px solid linear-gradient(160deg, var(--env-green-deep), var(--env-green-soft)) ; */
 }
 .env-wrap {
   position: relative;
@@ -145,8 +145,8 @@ button { font: inherit; }
   width: 100%;
   height: 100%;
   transform-origin: top;
-  background:linear-gradient(145deg, #cbba8d, #e29f22);
-  border: 4px solid rgba(194, 168, 120, 0.6);
+  background: linear-gradient(145deg, var(--sepia), var(--env-paper-main) 100%, var(--env-paper-shadow) 100%);
+  /* border: 4px solid rgba(194, 168, 120, 0.6); */
   clip-path: polygon(0 0, 100% 0, 50% 50%);
   transition: all .2s ease-in-out;
 }
@@ -445,6 +445,7 @@ button { font: inherit; }
   font-weight: 400;
   line-height: .82;
   color: var(--sepia);
+  font-style: italic;
 }
 .names span {
   display: block;
@@ -515,11 +516,13 @@ h2 {
     color: var(--terracotta);
     font-weight: 600;
     font-size: 14px;
+    font-style: italic;
     /* letter-spacing: .3em; */
 }
 .signature { 
   color: var(--sepia);
-  font-size: 40px; color: var(--terracotta);
+  font-size: 40px; 
+  /* color: var(--terracotta); */
 }
 .ornament {
   display: flex;
@@ -574,7 +577,12 @@ time {
   text-align: right; 
   padding-top: 2px; 
 }
-.tl-main { font-size: 19px; margin-bottom: 2px; }
+.tl-main { 
+  font-size: 19px;
+   margin-bottom: 2px;
+   font-weight: 900;
+   color: var(--sepia);
+  }
 .tl-sub { 
   color: var(--terracotta); 
   font-style: italic; 
