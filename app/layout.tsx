@@ -4,6 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Anano & Giorgi | Wedding Invitation",
   description: "Wedding invitation for Anano and Giorgi in Tuscany, Italy.",
+  icons: {
+    icon: "/assets/just_married.webp",
+    apple: "/assets/just_married.webp",
+  },
 };
 
 export const viewport: Viewport = {
