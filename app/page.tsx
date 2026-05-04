@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { NextIntlClientProvider, useTranslations } from "next-intl";
-import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, Dispatch, KeyboardEvent, SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import enMessages from "@/messages/en.json";
 import itMessages from "@/messages/it.json";
 import kaMessages from "@/messages/ka.json";
@@ -39,6 +39,98 @@ const programme = [
   ["19:30", "event6.title", "event6.place", "event6.data-label"],
   ["21:30", "event7.title", "event7.place", "event7.data-label"],
   ["22:00", "event8.title", "event8.place", "event8.data-label"],
+] as const;
+
+// Fill in each guest's full name exactly as they'll search for it.
+// Example: { id: 1, guests: ["ანანო ბერიძე", "გიორგი მამულაძე", ...] }
+const tables: { id: number; guests: string[] }[] = [
+  { id: 1,  guests: [] },
+  { id: 2,  guests: [] },
+  { id: 3,  guests: [] },
+  { id: 4,  guests: [] },
+  { id: 5,  guests: [] },
+  { id: 6,  guests: [] },
+  { id: 7,  guests: [] },
+  { id: 8,  guests: [] },
+  { id: 9,  guests: [] },
+  { id: 10, guests: [] },
+];
+
+const TABLE_POSITIONS = [
+  { id: 1,  x: 70,  y: 90  },
+  { id: 2,  x: 194, y: 90  },
+  { id: 3,  x: 360, y: 90  },
+  { id: 4,  x: 526, y: 90  },
+  { id: 5,  x: 650, y: 90  },
+  { id: 6,  x: 70,  y: 330 },
+  { id: 7,  x: 194, y: 330 },
+  { id: 8,  x: 360, y: 330 },
+  { id: 9,  x: 526, y: 330 },
+  { id: 10, x: 650, y: 330 },
+];
+
+function TableMap({ activeId }: { activeId: number | null }) {
+  const R = 32, SR = 9, ORBIT = 44, N = 8;
+  return (
+    <svg viewBox="0 0 720 420" className="table-map" aria-hidden="true">
+      <rect x="8" y="8" width="704" height="404" rx="16"
+        fill="rgba(251,250,246,0.5)" stroke="var(--sepia)" strokeWidth="0.8"
+        strokeOpacity="0.2" strokeDasharray="6,4" />
+      <rect x="245" y="138" width="230" height="144" rx="10"
+        fill="rgba(143,162,135,0.08)" stroke="var(--sepia)" strokeWidth="0.8" strokeOpacity="0.18" />
+      <text x="360" y="214" textAnchor="middle" fontSize="11"
+        fill="var(--sepia)" fillOpacity="0.35" fontStyle="italic">
+        dance floor
+      </text>
+      {TABLE_POSITIONS.map(({ id, x, y }) => {
+        const active = activeId === id;
+        return (
+          <g key={id}>
+            {Array.from({ length: N }, (_, i) => {
+              const a = (i / N) * 2 * Math.PI - Math.PI / 2;
+              return (
+                <circle key={i}
+                  cx={x + ORBIT * Math.cos(a)} cy={y + ORBIT * Math.sin(a)} r={SR}
+                  fill={active ? "rgba(143,162,135,0.45)" : "rgba(237,231,225,0.9)"}
+                  stroke={active ? "var(--primary-dark)" : "var(--sepia)"}
+                  strokeWidth="0.8" strokeOpacity={active ? 0.7 : 0.28}
+                />
+              );
+            })}
+            <circle cx={x} cy={y} r={R}
+              fill={active ? "rgba(143,162,135,0.28)" : "rgba(243,241,236,0.95)"}
+              stroke={active ? "var(--primary-dark)" : "var(--sepia)"}
+              strokeWidth={active ? 2.2 : 1} strokeOpacity={active ? 1 : 0.32}
+            />
+            <text x={x} y={y + 6} textAnchor="middle" fontSize="14"
+              fontWeight={active ? "600" : "400"}
+              fill={active ? "var(--primary-dark)" : "var(--sepia)"}
+              fillOpacity={active ? 1 : 0.55}>
+              {id}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+const cities = [
+  {
+    key: "city1",
+    mapUrl: "https://www.google.com/maps/place/San+Miniato/",
+    cssClass: "san-miniato",
+  },
+  {
+    key: "city2",
+    mapUrl: "https://www.google.com/maps/place/San+Gimignano/",
+    cssClass: "san-gimignano",
+  },
+  {
+    key: "city3",
+    mapUrl: "https://www.google.com/maps/place/Volterra/",
+    cssClass: "volterra",
+  },
 ] as const;
 
 const locations = [
@@ -89,6 +181,16 @@ export default function Home() {
 }
 
 function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
+  const [seatQuery, setSeatQuery] = useState("");
+  const seatResult = useMemo(() => {
+    const q = seatQuery.trim().toLowerCase();
+    if (q.length < 2) return null;
+    for (const table of tables) {
+      if (table.guests.some(g => g.toLowerCase().includes(q))) return table;
+    }
+    return "not-found" as const;
+  }, [seatQuery]);
+
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   const [showEnvelopeMassage, setShowEnvelopeMassage] = useState(false);
@@ -339,6 +441,70 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               </div>
             </article>
           </section>
+          <section className="section page_5_wrapper">
+            <article className="white-card wide reveal">
+              <p className="eyebrow">{t("explore.eyebrow")}</p>
+              <h2>{t("explore.title")}</h2>
+              <p className="subtitle">{t("explore.intro")}</p>
+              <div className="city-grid">
+                {cities.map(({ key, mapUrl, cssClass }, index) => (
+                  <a
+                    key={key}
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`city-card city-bg-${cssClass} reveal reveal-d${Math.min(3, index + 1)}`}
+                  >
+                    <div className="city-card-overlay" />
+                    <div className="city-card-body">
+                      <p className="city-card-name">{t(`${key}.name`)}</p>
+                      <p className="city-card-desc">{t(`${key}.desc`)}</p>
+                      <p className="city-card-distance">{t(`${key}.distance`)}</p>
+                      <span className="city-card-maps-btn">📍 {t("explore.viewOnMaps")}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </article>
+          </section>
+          {/* <section className="section page_6_wrapper">
+            <article className="white-card wide reveal">
+              <p className="eyebrow">{t("seating.eyebrow")}</p>
+              <h2>{t("seating.title")}</h2>
+              <div className="seating-search">
+                <input
+                  className="seating-input"
+                  type="text"
+                  value={seatQuery}
+                  onChange={e => setSeatQuery(e.target.value)}
+                  placeholder={t("seating.placeholder")}
+                  autoComplete="off"
+                />
+              </div>
+              {seatQuery.trim().length >= 2 && (
+                <div className={`seating-result${seatResult === "not-found" ? " not-found" : seatResult ? " found" : ""}`}>
+                  {seatResult === "not-found" ? (
+                    <p>{t("seating.notFound")}</p>
+                  ) : seatResult ? (
+                    <>
+                      <p className="seat-table-num">{t("seating.result", { n: seatResult.id })}</p>
+                      {seatResult.guests.length > 0 && (
+                        <>
+                          <p className="seat-together-label">{t("seating.together")}</p>
+                          <ul className="seat-guests">
+                            {seatResult.guests.map(g => <li key={g}>{g}</li>)}
+                          </ul>
+                        </>
+                      )}
+                    </>
+                  ) : null}
+                </div>
+              )}
+              <div className="table-map-wrap">
+                <TableMap activeId={seatResult && seatResult !== "not-found" ? seatResult.id : null} />
+              </div>
+            </article>
+          </section> */}
         </main>
       )
       }

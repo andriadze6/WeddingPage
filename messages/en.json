@@ -88,5 +88,34 @@
     "label": "Hotel",
     "name": "Agriturismo Il Piastrino",
     "detail": "Our main accommodation"
+  },
+  "seating": {
+    "eyebrow": "Find Your Seat",
+    "title": "Seating Chart",
+    "placeholder": "Enter your name...",
+    "result": "You are at Table {n}",
+    "notFound": "Name not found. Please contact us if you have any questions.",
+    "together": "At your table:"
+  },
+  "explore": {
+    "eyebrow": "Our Recommendations",
+    "title": "Explore Tuscany",
+    "intro": "While you're here, we warmly recommend exploring some of the most beautiful towns in Tuscany — each within easy reach of Vinci.",
+    "viewOnMaps": "View on Maps"
+  },
+  "city1": {
+    "name": "San Miniato",
+    "desc": "A charming hilltop town renowned for its white truffles and breathtaking views over the Arno valley.",
+    "distance": "~25 km from Vinci · ~25 min by car"
+  },
+  "city2": {
+    "name": "San Gimignano",
+    "desc": "The 'Medieval Manhattan' of Tuscany — a UNESCO World Heritage site famous for its iconic medieval towers.",
+    "distance": "~45 km from Vinci · ~45 min by car"
+  },
+  "city3": {
+    "name": "Volterra",
+    "desc": "An ancient Etruscan city perched on a dramatic ridge, known for its alabaster crafts and sweeping Tuscan landscapes.",
+    "distance": "~60 km from Vinci · ~1 hour by car"
   }
 }

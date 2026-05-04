@@ -88,5 +88,34 @@
     "label": "Hotel",
     "name": "Agriturismo Il Piastrino",
     "detail": "Il nostro alloggio principale"
+  },
+  "seating": {
+    "eyebrow": "Trova il tuo posto",
+    "title": "Piano dei Tavoli",
+    "placeholder": "Inserisci il tuo nome...",
+    "result": "Sei al Tavolo {n}",
+    "notFound": "Nome non trovato. Contattateci per qualsiasi domanda.",
+    "together": "Al tuo tavolo:"
+  },
+  "explore": {
+    "eyebrow": "I Nostri Consigli",
+    "title": "Esplora la Toscana",
+    "intro": "Durante la vostra visita, vi consigliamo vivamente di esplorare alcune delle più belle città della Toscana — tutte facilmente raggiungibili da Vinci.",
+    "viewOnMaps": "Vedi su Maps"
+  },
+  "city1": {
+    "name": "San Miniato",
+    "desc": "Un affascinante borgo collinare rinomato per il tartufo bianco e le viste mozzafiato sulla valle dell'Arno.",
+    "distance": "~25 km da Vinci · ~25 min in auto"
+  },
+  "city2": {
+    "name": "San Gimignano",
+    "desc": "La 'Manhattan medievale' della Toscana — Patrimonio UNESCO famoso per le sue iconiche torri medievali.",
+    "distance": "~45 km da Vinci · ~45 min in auto"
+  },
+  "city3": {
+    "name": "Volterra",
+    "desc": "Un'antica città etrusca su un drammatico crinale, famosa per l'arte dell'alabastro e i panorami toscani.",
+    "distance": "~60 km da Vinci · ~1 ora in auto"
   }
 }
