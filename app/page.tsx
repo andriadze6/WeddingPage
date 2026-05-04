@@ -191,6 +191,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
     return "not-found" as const;
   }, [seatQuery]);
 
+  const [envTipX, setEnvTipX] = useState(50);
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   const [showEnvelopeMassage, setShowEnvelopeMassage] = useState(false);
@@ -320,8 +321,14 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               }
             }}
             onKeyDown={handleEnvelopeKeyDown}
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = ((e.clientX - rect.left) / rect.width) * 100;
+              setEnvTipX(Math.max(15, Math.min(85, x)));
+            }}
+            onMouseLeave={() => setEnvTipX(50)}
           >
-            <div className="env-wrap">
+            <div className="env-wrap" style={{ '--env-tip-x': `${envTipX}%` } as CSSProperties}>
               <div className="env-top" />
               <div className="env-bottom-wrap">
                 <div className="env-bottom" />
