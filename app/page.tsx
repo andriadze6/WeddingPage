@@ -458,7 +458,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
           <section className="section page_5_wrapper">
             <article className="white-card wide reveal">
               <p className="eyebrow">{t("explore.eyebrow")}</p>
-              <h2>{t("explore.title")}</h2>
+              {/* <h2>{t("explore.title")}</h2> */}
               <p className="subtitle">{t("explore.intro")}</p>
               <div className="city-grid">
                 {cities.map(({ key, mapUrl, cssClass }, index) => (
