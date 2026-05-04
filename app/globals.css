@@ -541,6 +541,7 @@ h2 {
 .signature { 
   color: var(--sepia);
   font-size: 40px; 
+  font-style: italic;
   /* color: var(--terracotta); */
 }
 .ornament {
