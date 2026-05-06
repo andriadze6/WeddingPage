@@ -333,7 +333,7 @@ function WeddingInvitation({ locale, setLocale }: WeddingInvitationProps) {
               <div className="env-bottom-wrap">
                 <div className="env-bottom" />
               </div>
-              <Image className="env-stamp" src="/assets/logo_red.webp" alt="Anano and Giorgi wax stamp" width={100} height={100} priority />
+              <Image className="env-stamp" src="/assets/wedding_envelope_logo.webp" alt="Anano and Giorgi wax stamp" width={100} height={100} priority />
               <div className="env-card-peek-wrapper">
                 <div className="env-card-peek">
                   <span>{t("envelope.title")}</span>
